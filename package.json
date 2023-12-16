@@ -1,0 +1,10 @@
+{
+  "name": "my-website",
+  "version": "1.0.0",
+  "description": "My personal website.",
+  "main": "index.js",
+  "repository": "https://github.com/scoottrick/my-website.git",
+  "author": "Scott Schapker <csschapker94@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
