@@ -8,7 +8,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "cp -a src/. public/"
+    "build": "cp -a src/. public/",
+    "deploy": "yarn run build && firebase deploy"
   },
   "devDependencies": {
     "firebase-tools": "^13.0.2"
