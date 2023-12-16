@@ -6,5 +6,8 @@
   "repository": "https://github.com/scoottrick/my-website.git",
   "author": "Scott Schapker <csschapker94@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "build": "cp -a src/. public/"
+  }
 }
