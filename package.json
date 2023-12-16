@@ -9,5 +9,8 @@
   "private": true,
   "scripts": {
     "build": "cp -a src/. public/"
+  },
+  "devDependencies": {
+    "firebase-tools": "^13.0.2"
   }
 }
