@@ -1,0 +1,39 @@
+@import './base.css';
+
+#app {
+    /* max-width: 1280px; */
+    margin: 0 auto;
+    /* padding: 2rem; */
+
+    padding: 24px;
+    font-weight: normal;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 100vh min-content;
+}
+
+a {
+    color: var(--color-interact);
+}
+
+button {
+    background-color: var(--color-interact);
+    color: var(--color-text);
+    font-size: 1.2em;
+    padding: 0.75em 2em;
+    min-width: 70px;
+    min-height: 25px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 0 0 0 black;
+    transition: box-shadow 200ms ease-in-out;
+}
+
+button:hover {
+    box-shadow: 4px 8px 8px -4px #111;
+}
+
+button:active {
+    box-shadow: 2px 4px 4px -4px #111;
+}

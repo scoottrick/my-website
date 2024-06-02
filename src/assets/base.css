@@ -1,0 +1,61 @@
+:root {
+    --lt-background: rgb(230, 230, 230);
+    --lt-text: rgb(10, 10, 10);
+
+    --dt-background: rgb(41, 41, 41);
+    --dt-text: rgb(200, 200, 200);
+
+    --interactive-color: rgb(3, 148, 184);
+}
+
+:root {
+    --color-background: var(--lt-background);
+    --color-text: var(--lt-text);
+    --color-interact: var(--interactive-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: var(--dt-background);
+        --color-text: var(--dt-text);
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    font-weight: normal;
+    line-height: 1;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--color-text);
+    background: var(--color-background);
+    transition:
+        color 0.5s,
+        background-color 0.5s;
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Fira Sans',
+        'Droid Sans',
+        'Helvetica Neue',
+        sans-serif;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
