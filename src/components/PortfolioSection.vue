@@ -5,15 +5,11 @@ const props = defineProps({
     portfolio: { type: Object, required: true }
 });
 const portfolio = props.portfolio;
-
-function idForSection(section) {
-    return `portfolio-section-${section.id}`;
-}
 </script>
 
 <template>
     <main id="portfolio">
-        <section v-for="section in portfolio" :key="section.id" :id="idForSection(section)">
+        <section v-for="section in portfolio" :key="section.id">
             <h1>{{ section.title }}</h1>
             <ul class="project-list">
                 <li
