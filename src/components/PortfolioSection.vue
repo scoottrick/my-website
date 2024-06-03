@@ -13,11 +13,6 @@ function idForSection(section) {
 
 <template>
     <main id="portfolio">
-        <ul>
-            <li v-for="section in portfolio" :key="section.id">
-                <a :href="`#${idForSection(section)}`">{{ section.title }}</a>
-            </li>
-        </ul>
         <section v-for="section in portfolio" :key="section.id" :id="idForSection(section)">
             <h1>{{ section.title }}</h1>
             <ul class="project-list">
