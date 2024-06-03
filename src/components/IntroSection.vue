@@ -1,11 +1,84 @@
 <script setup>
+import { ref } from 'vue';
 import resumeUrl from '@/assets/Scott-Schapker-Resume.pdf';
 import mainImageUrl from '@/assets/home-image.jpg';
+
+const hackable = ref(null);
+let animating = ref(false);
+
+function triggerHackEffect(e) {
+    // hackText(hackable.value);
+    onceRandomHack(hackable.value);
+}
+
+function randomLetter() {
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    return alphabet[Math.floor(Math.random() * alphabet.length)];
+}
+
+function hackText(target) {
+    if (animating.value) {
+        return;
+    }
+    const initialText = target.innerText;
+    const textLength = initialText.length;
+    const totalTime = 800;
+    const intervalTime = totalTime / initialText.length;
+    const debounceTime = totalTime;
+    animating.value = true;
+
+    let i = 0;
+    const timer = setInterval(() => {
+        const remainingLength = textLength - i;
+        let randoms = '';
+        for (let j = 0; j < remainingLength; j++) {
+            const isSpace = initialText[j + i] === ' ';
+            const newLetter = isSpace ? ' ' : randomLetter();
+            randoms += newLetter;
+        }
+        const newText = initialText.substring(0, i) + randoms;
+        target.innerText = newText;
+        if (++i >= initialText.length) {
+            target.innerText = initialText;
+            setTimeout(() => (animating.value = false), debounceTime);
+            return clearInterval(timer);
+        }
+    }, intervalTime);
+}
+
+function onceRandomHack(target) {
+    if (animating.value) {
+        return;
+    }
+    const init = target.innerText;
+    const len = init.length;
+    const effectTime = 500;
+    const intervalTime = effectTime / len;
+    const debounceTime = 1000;
+    animating.value = true;
+
+    let randomized = '';
+    for (let i = 0; i < len; i++) {
+        const newChar = init[i] === ' ' ? ' ' : randomLetter();
+        randomized += newChar;
+    }
+    target.innerText = randomized;
+
+    let i = 0;
+    const timer = setInterval(() => {
+        const newText = init.substring(0, i) + randomized.substring(i, len);
+        target.innerText = newText;
+        if (++i > len) {
+            setTimeout(() => (animating.value = false), debounceTime);
+            return clearInterval(timer);
+        }
+    }, intervalTime);
+}
 </script>
 
 <template>
     <header>
-        <div class="header-grid">
+        <div class="header-grid" @mouseenter="triggerHackEffect">
             <div class="image-container">
                 <img :src="mainImageUrl" alt="Me" />
             </div>
@@ -14,8 +87,10 @@ import mainImageUrl from '@/assets/home-image.jpg';
                 <a :href="resumeUrl" target="_blank"><button>Resume</button></a>
             </nav>
             <div class="description-container">
-                <h1>Scott Schapker</h1>
-                <h2>Software Engineer/Web Developer</h2>
+                <span>
+                    <h1>Scott Schapker</h1>
+                    <h2 ref="hackable">Software Engineer</h2>
+                </span>
                 <p>
                     I'm primarily a web developer with a decade of experience creating applications
                     with JavaScript. I'm most familiar working with Angular but have also spent time
@@ -37,13 +112,34 @@ header {
     padding-bottom: 120px;
 }
 
+header h1,
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+
+header h1 {
+    font-size: 2em;
+    margin-bottom: 0.5rem;
+}
+
+header h2 {
+    font-size: 1.4em;
+    margin-bottom: 2rem;
+}
+
+header p {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
 .header-grid {
     display: grid;
-    max-width: 1280px;
+    max-width: 1080px;
     grid-template-columns: 1fr;
     grid-auto-rows: min-content;
     grid-template-areas: 'image' 'nav' 'desc';
-    gap: 24px;
+    row-gap: 2rem;
 }
 
 .image-container {
@@ -62,7 +158,7 @@ nav {
     grid-area: nav;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /*     
+    /*
     flex-direction: row;
     justify-content: space-between; */
     gap: 24px;
@@ -81,6 +177,7 @@ nav a button {
 
 .description-container {
     grid-area: desc;
+    padding: 1rem auto;
 }
 
 @media screen and (min-width: 720px) {
@@ -88,7 +185,10 @@ nav a button {
         grid-template-columns: auto 1fr;
         grid-template-rows: min-content min-content;
         grid-template-areas: 'image desc' 'nav .';
-        column-gap: 40px;
+    }
+
+    .description-container {
+        padding: 1rem 2rem;
     }
 }
 </style>
