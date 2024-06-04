@@ -105,7 +105,11 @@ const mobileTechApp = createProjectData('Mobile Tech', 'mobile-tech', 32, 7, {
     techs: [TechList.ionic, TechList.angular, TechList.typescript, TechList.android, TechList.ios]
 });
 
-const certifiApp = createProjectData('Certifi', 'certifi', 11, 4);
+const certifiApp = createProjectData('Certifi', 'certifi', 11, 4, {
+    project: '',
+    role: '',
+    techs: [TechList.ionic, TechList.angular, TechList.typescript, TechList.android, TechList.ios]
+});
 
 const digitalCorps = createSection('Digital Corps @ Ball State', [
     mapApp,
