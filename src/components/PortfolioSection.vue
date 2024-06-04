@@ -30,7 +30,9 @@ const portfolio = props.portfolio;
                         </div>
                         <ul class="tech-list">
                             <li v-for="(tech, i) in project.techs" :key="i">
-                                {{ tech }}
+                                <a :href="tech.url" target="_blank" :title="tech.text"
+                                    ><img :src="`logos/${tech.logo}`" :alt="tech.text"
+                                /></a>
                             </li>
                         </ul>
                     </div>
@@ -42,8 +44,8 @@ const portfolio = props.portfolio;
 
 <style scoped>
 main#portfolio {
-    max-width: 1440px;
     margin: 0 auto;
+    padding-bottom: 10rem;
 }
 section:not(:last-child) {
     margin-bottom: 4em;
@@ -86,10 +88,14 @@ ul {
 .tech-list li {
     flex: 1 1 auto;
     text-align: center;
-    padding: 0.4em 0.8em;
-    min-width: 80px;
-    border-radius: 40px;
-    border: 1px solid var(--lt-background);
+    padding: 0.5em;
+    border-radius: 100%;
+}
+
+.tech-list img {
+    --size: 40px;
+    width: var(--size);
+    height: var(--size);
 }
 
 .project {
@@ -117,7 +123,7 @@ ul {
 .details {
     grid-area: details;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: space-between;
 }
 
@@ -129,6 +135,9 @@ ul {
     .project.reversed {
         grid-template-columns: 1fr auto;
         grid-template-areas: 'details thumb';
+    }
+    .details {
+        flex-direction: column;
     }
 }
 
