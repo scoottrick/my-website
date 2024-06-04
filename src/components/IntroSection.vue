@@ -79,7 +79,7 @@ header {
     justify-content: center;
     align-items: center;
 
-    padding-bottom: 120px;
+    padding-bottom: 20vh;
 }
 
 header h1,

@@ -25,7 +25,7 @@ function selectFromRange(percent, start, end) {
 }
 
 function getColorValue(scrollPercent) {
-    const darkRange = [30, 10];
+    const darkRange = [30, 20];
     const lightRange = [205, 225];
     const distanceFromHalf = Math.abs(0.5 - scrollPercent);
     const adjustedPercent = distanceFromHalf / 0.5;

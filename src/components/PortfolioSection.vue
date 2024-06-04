@@ -30,9 +30,18 @@ const portfolio = props.portfolio;
                         </div>
                         <ul class="tech-list">
                             <li v-for="(tech, i) in project.techs" :key="i">
-                                <a :href="tech.url" target="_blank" :title="tech.text"
-                                    ><img :src="`logos/${tech.logo}`" :alt="tech.text"
+                                <a v-if="tech.url" :href="tech.url" target="_blank"
+                                    ><img
+                                        :src="`logos/${tech.logo}`"
+                                        :alt="tech.text"
+                                        :title="tech.text"
                                 /></a>
+                                <img
+                                    v-else
+                                    :src="`logos/${tech.logo}`"
+                                    :alt="tech.text"
+                                    :title="tech.text"
+                                />
                             </li>
                         </ul>
                     </div>
@@ -45,7 +54,7 @@ const portfolio = props.portfolio;
 <style scoped>
 main#portfolio {
     margin: 0 auto;
-    padding-bottom: 10rem;
+    padding-bottom: 20vh;
 }
 section:not(:last-child) {
     margin-bottom: 4em;
@@ -75,19 +84,13 @@ ul {
 }
 
 .tech-list {
+    margin: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: center;
     gap: 1em;
-    padding: 1em;
-}
-
-.tech-list li {
-    flex: 1 1 auto;
-    text-align: center;
-    padding: 0.5em;
-    border-radius: 100%;
+    padding: 1em 0;
 }
 
 .tech-list img {
@@ -101,7 +104,7 @@ ul {
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
     grid-template-areas: 'thumb' 'details';
-    gap: 24px;
+    gap: 2em;
 }
 
 .thumb {
@@ -115,6 +118,7 @@ ul {
     max-width: 400px;
     max-height: 400px;
     object-fit: contain;
+    border-radius: 4px;
 }
 
 .details {
@@ -129,16 +133,16 @@ ul {
         grid-template-columns: auto 1fr;
         grid-template-areas: 'thumb details';
     }
-    .project.reversed {
-        grid-template-columns: 1fr auto;
-        grid-template-areas: 'details thumb';
-    }
     .details {
         flex-direction: column;
     }
+    .tech-list {
+        gap: 2em;
+        justify-content: start;
+    }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
     .project-list {
         grid-template-columns: repeat(2, 1fr);
     }
