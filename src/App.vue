@@ -5,17 +5,15 @@ import PortfolioSection from './components/PortfolioSection.vue';
 
 import portfolioData from './portfolio-data';
 
-function createColor(value) {
-    return `rgb(${value}, ${value}, ${value})`;
-}
-
-function setBackground(element, color) {
-    // element.animate([{ background: color }], { duration: 1000, fill: 'forwards' });
-    element.style.background = color;
+function setBackground({ dark, light }) {
+    const style = document.documentElement.style;
+    const darkValue = `rgb(${dark}, ${dark}, ${dark})`;
+    const lightValue = `rgb(${light}, ${light}, ${light})`;
+    style.setProperty('--dt-background', darkValue);
+    style.setProperty('--lt-background', lightValue);
 }
 
 function selectFromRange(percent, start, end) {
-    // debugger;
     const breadth = Math.abs(start - end);
     const offset = breadth * percent;
     if (start < end) {
@@ -26,24 +24,28 @@ function selectFromRange(percent, start, end) {
     }
 }
 
-function getColorValue(scrollElement, scrollPercent) {
-    const maxColor = 30;
-    const minColor = 10;
+function getColorValue(scrollPercent) {
+    const darkRange = [30, 10];
+    const lightRange = [205, 225];
     const distanceFromHalf = Math.abs(0.5 - scrollPercent);
     const adjustedPercent = distanceFromHalf / 0.5;
-    return Math.floor(selectFromRange(adjustedPercent, maxColor, minColor));
+    const dark = Math.floor(selectFromRange(adjustedPercent, darkRange[0], darkRange[1]));
+    const light = Math.floor(selectFromRange(adjustedPercent, lightRange[0], lightRange[1]));
+    return { dark, light };
+}
+
+function getScrollPercent() {
+    return window.scrollY / (document.body.clientHeight - window.innerHeight);
 }
 
 onMounted(() => {
-    const scrollView = document.getElementById('app');
-    setBackground(scrollView, createColor(10));
+    const initialColors = getColorValue(getScrollPercent());
+    setBackground(initialColors);
 
     window.addEventListener('scroll', () => {
         if (document.body.clientHeight > window.innerHeight) {
-            const position = window.scrollY / (document.body.clientHeight - window.innerHeight);
-            const color = createColor(getColorValue(scrollView, position));
-            console.log(color);
-            setBackground(scrollView, color);
+            const colors = getColorValue(getScrollPercent());
+            setBackground(colors);
         }
     });
 });
