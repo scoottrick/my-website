@@ -64,8 +64,6 @@ ul {
 
 .project-list {
     display: grid;
-
-    /* max-width: 700px; */
     grid-template-columns: 1fr;
     grid-auto-rows: min-content;
     gap: 48px;
@@ -114,7 +112,6 @@ ul {
     display: block;
     margin: 0 auto;
     width: 100%;
-    /* height: 100%; */
     max-width: 400px;
     max-height: 400px;
     object-fit: contain;
