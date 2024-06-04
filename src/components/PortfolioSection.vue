@@ -41,6 +41,10 @@ const portfolio = props.portfolio;
 </template>
 
 <style scoped>
+main#portfolio {
+    max-width: 1440px;
+    margin: 0 auto;
+}
 section:not(:last-child) {
     margin-bottom: 4em;
 }

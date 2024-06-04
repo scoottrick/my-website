@@ -6,9 +6,8 @@ import mainImageUrl from '@/assets/home-image.jpg';
 const hackable = ref(null);
 let animating = ref(false);
 
-function triggerHackEffect(e) {
-    // hackText(hackable.value);
-    onceRandomHack(hackable.value);
+function triggerHackEffect() {
+    hackText(hackable.value);
 }
 
 function randomLetter() {
@@ -40,35 +39,6 @@ function hackText(target) {
         target.innerText = newText;
         if (++i >= initialText.length) {
             target.innerText = initialText;
-            setTimeout(() => (animating.value = false), debounceTime);
-            return clearInterval(timer);
-        }
-    }, intervalTime);
-}
-
-function onceRandomHack(target) {
-    if (animating.value) {
-        return;
-    }
-    const init = target.innerText;
-    const len = init.length;
-    const effectTime = 500;
-    const intervalTime = effectTime / len;
-    const debounceTime = 1000;
-    animating.value = true;
-
-    let randomized = '';
-    for (let i = 0; i < len; i++) {
-        const newChar = init[i] === ' ' ? ' ' : randomLetter();
-        randomized += newChar;
-    }
-    target.innerText = randomized;
-
-    let i = 0;
-    const timer = setInterval(() => {
-        const newText = init.substring(0, i) + randomized.substring(i, len);
-        target.innerText = newText;
-        if (++i > len) {
             setTimeout(() => (animating.value = false), debounceTime);
             return clearInterval(timer);
         }
