@@ -137,6 +137,7 @@ ul {
         flex-direction: column;
     }
     .tech-list {
+        padding: 1em 0 0;
         gap: 2em;
         justify-content: start;
     }
