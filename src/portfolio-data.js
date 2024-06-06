@@ -61,6 +61,9 @@ class TechList {
             'https://developers.google.com/maps'
         );
     }
+    static get ngrx() {
+        return this.createTech('ngrx.svg', 'NGRX', 'https://ngrx.io/');
+    }
 
     static createTech(logo, text, url) {
         return { logo, text, url };
@@ -74,10 +77,11 @@ const mockRoleDescription =
 const mockTechs = [TechList.ionic, TechList.angular, TechList.ios, TechList.android, TechList.html];
 
 // CLEANSLATE
-const edesign = createProjectData('Herff Jones eDesign', 'edesign', 0, 0, {
-    project: '',
-    role: '',
-    techs: [TechList.angular, TechList.typescript, TechList.aws, TechList.docker]
+const edesign = createProjectData('Herff Jones eDesign', 'edesign', 7, 7, {
+    project:
+        'eDesign is a service used by schools to create yearbooks. Students and staff can use eDesign for everything in the creation process including uploading image libraries, assigning tasks, designing pages and ordering yearbooks.',
+    role: 'My work on eDesign was concentrated on the page design system, where we used Angular and Fabric.js to implement features for adding and manipulating text, shapes, and images on an HTML canvas. I was heavily involved in creating the core tool-selection system and establishing patterns for using Angular components to control Fabric.js actions. Later in the project, I also played an important role finding and fixing obscure bugs.',
+    techs: [TechList.angular, TechList.typescript, TechList.ngrx, TechList.aws, TechList.docker]
 });
 const cleanslate = createSection('CleanSlate Technology Group', [edesign]);
 
@@ -121,8 +125,9 @@ const mobileTechApp = createProjectData('Mobile Tech', 'mobile-tech', 32, 7, {
     techs: [TechList.ionic, TechList.angular, TechList.typescript, TechList.android, TechList.ios]
 });
 const certifiApp = createProjectData('Certifi', 'certifi', 11, 4, {
-    project: '',
-    role: '',
+    project:
+        "Much like the Mobile Tech app, CertiFi acts as a bridge between Viavi's network testing equipment and the cloud. CertiFi was made to support more test instruments, but, similarly to Mobile Tech, it mainly passes configurations, settings and test data back and forth.",
+    role: 'The Android and iOS versions of the CertiFi closely mimic the Mobile Tech apps but with more dynamic interfaces to support multiple kinds of test instruments. We reused many ideas and components from Mobile Tech but adapted them to show the relevant information for each supported device.',
     techs: [TechList.ionic, TechList.angular, TechList.typescript, TechList.android, TechList.ios]
 });
 const viavi = createSection('Viavi Solutions, Inc', [mobileTechApp, certifiApp]);
