@@ -1,6 +1,4 @@
 <script setup>
-import { defineProps } from 'vue';
-
 const props = defineProps({
     portfolio: { type: Object, required: true }
 });
@@ -12,11 +10,7 @@ const portfolio = props.portfolio;
         <section v-for="section in portfolio" :key="section.id">
             <h1>{{ section.title }}</h1>
             <ul class="project-list">
-                <li
-                    v-for="(project, i) in section.projects"
-                    :key="project.id"
-                    :class="i % 2 !== 0 ? 'project reversed' : 'project'"
-                >
+                <li v-for="project in section.projects" :key="project.id" class="project">
                     <div class="thumb"><img :src="project.thumbnail" alt="" /></div>
                     <div class="details">
                         <div class="desc-container">

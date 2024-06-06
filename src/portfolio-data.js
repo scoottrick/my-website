@@ -128,13 +128,13 @@ const certifiApp = createProjectData('Certifi', 'certifi', 11, 4, {
 const viavi = createSection('Viavi Solutions, Inc', [mobileTechApp, certifiApp]);
 
 // PERSONAL
-const falloutApp = createProjectData('Fallout 4 Buddy', 'fallout', 0, 0, {
+const falloutApp = createProjectData('Fallout 4 Buddy', 'fallout', 1, 1, {
     project:
         'Fallout 4 is a massive game with plenty of things to do and find. I built this web app to simplify my campaigns by allowing me to keep track of which collectible items I have found and the ones still scattered across the Wasteland. I also included a tool to help hack the locked terminals throughout the game.',
     role: "My Fallout 4 companion app is the first Progressive Web App that I made with Angular. I implemented checklists of the game's collectible items that are saved in local storage and include information about where the items can be found and the effects they have. The terminal hacking feature allows users to input the possible passwords from in-game terminals and filters out the incorrect options until the correct password is found.",
     techs: [TechList.angular, TechList.typescript, TechList.html, TechList.css]
 });
-const golfApp = createProjectData('Round of Golf', 'golf', 0, 0, {
+const golfApp = createProjectData('Round of Golf', 'golf', 1, 1, {
     project:
         "This web app was built to be the simplest way to keep track of scores for a round of golf. It's as simple as I could make it. All that's needed to create a scorecard are the names of 1-4 golfers and a choice of either 9 or 18 holes. Scorecards are then saved as they are updated and can be revisited via a history feature.",
     role: "I created this app with the goal of giving myself a quick and easy way to keep track of golf scores while playing with friends, but I used the project as a way to familiarize myself with React and Tailwind as well. Because it's a Progressive Web App that stores scorecard data in local storage, it has almost no loading times and can be used completely offline.",
