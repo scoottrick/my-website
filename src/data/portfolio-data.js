@@ -165,12 +165,12 @@ function createProjectData(name, path, details) {
     if (!details) {
         throw new Error('cannont create portfolio data');
     }
-    const { description, role, techs } = details;
+    const { project, role, techs } = details;
     return {
         id: ++projectId,
         name,
         thumbnail: `/${baseDir}/${path}/thumb.jpg`,
-        description: description,
+        description: project,
         myRole: role,
         techs: techs
     };
