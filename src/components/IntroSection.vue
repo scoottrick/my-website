@@ -1,7 +1,5 @@
 <script setup>
 import { ref } from 'vue';
-import resumeUrl from '@/assets/Scott-Schapker-Resume.pdf';
-import mainImageUrl from '@/assets/home-image.jpg';
 
 const hackable = ref(null);
 let animating = ref(false);
@@ -50,11 +48,11 @@ function hackText(target) {
     <header>
         <div class="header-grid" @mouseenter="triggerHackEffect">
             <div class="image-container">
-                <img :src="mainImageUrl" alt="Me" />
+                <img src="/headshot.jpg" alt="Me" />
             </div>
             <nav class="nav-container">
                 <a href="#portfolio"><button>Projects</button></a>
-                <a :href="resumeUrl" target="_blank"><button>Resume</button></a>
+                <a href="/Scott-Schapker-Resume.pdf" target="_blank"><button>Resume</button></a>
             </nav>
             <div class="description-container">
                 <span>
