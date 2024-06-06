@@ -3,7 +3,7 @@ import { onMounted } from 'vue';
 import IntroSection from './components/IntroSection.vue';
 import PortfolioSection from './components/PortfolioSection.vue';
 
-import portfolioData from './portfolio-data';
+import portfolioData from './data/portfolio-data';
 
 function setBackground({ dark, light }) {
     const style = document.documentElement.style;

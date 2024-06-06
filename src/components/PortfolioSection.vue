@@ -25,17 +25,9 @@ const portfolio = props.portfolio;
                         <ul class="tech-list">
                             <li v-for="(tech, i) in project.techs" :key="i">
                                 <a v-if="tech.url" :href="tech.url" target="_blank"
-                                    ><img
-                                        :src="`logos/${tech.logo}`"
-                                        :alt="tech.text"
-                                        :title="tech.text"
+                                    ><img :src="tech.logo" :alt="tech.text" :title="tech.text"
                                 /></a>
-                                <img
-                                    v-else
-                                    :src="`logos/${tech.logo}`"
-                                    :alt="tech.text"
-                                    :title="tech.text"
-                                />
+                                <img v-else :src="tech.logo" :alt="tech.text" :title="tech.text" />
                             </li>
                         </ul>
                     </div>
