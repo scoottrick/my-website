@@ -123,7 +123,7 @@ ul {
     flex-direction: column-reverse;
     justify-content: space-between;
     min-width: 400px;
-    max-width: 800px;
+    max-width: 1200px;
 }
 
 @media screen and (min-width: 720px) {
