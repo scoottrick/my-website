@@ -66,10 +66,11 @@ ul {
 }
 
 .project-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: min-content;
-    gap: 48px;
+    --direction: column;
+    gap: 4rem;
+    display: flex;
+    flex-direction: var(--direction);
+    flex-wrap: wrap;
 }
 
 .project-list h2,
@@ -109,9 +110,10 @@ ul {
     display: block;
     margin: 0 auto;
     width: 100%;
+    height: 100%;
     max-width: 400px;
     max-height: 400px;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 4px;
 }
 
@@ -120,6 +122,8 @@ ul {
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
+    min-width: 400px;
+    max-width: 800px;
 }
 
 @media screen and (min-width: 720px) {
@@ -137,9 +141,14 @@ ul {
     }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1680px) {
     .project-list {
-        grid-template-columns: repeat(2, 1fr);
+        --direction: row;
+    }
+    .project {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 45%;
     }
 }
 </style>
