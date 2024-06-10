@@ -170,8 +170,9 @@ function createProjectData(name, path, details) {
         id: ++projectId,
         name,
         thumbnail: `/${baseDir}/${path}/thumb.jpg`,
+        images: [],
         description: project,
-        myRole: role,
+        role: role,
         techs: techs
     };
 }
