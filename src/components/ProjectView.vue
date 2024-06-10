@@ -1,4 +1,5 @@
 <script setup>
+import ImageViewer from './ImageViewer.vue';
 const { project } = defineProps({
     project: { type: Object, required: true }
 });
@@ -6,7 +7,7 @@ const { project } = defineProps({
 <template>
     <h2>{{ project.name }}</h2>
     <div class="project">
-        <div class="thumb"><img :src="project.thumbnail" alt="" /></div>
+        <div class="thumb"><ImageViewer :cover="project.thumbnail" :images="project.images" /></div>
         <div class="details">
             <div>
                 <div class="description">
