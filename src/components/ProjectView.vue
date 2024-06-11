@@ -5,7 +5,10 @@ const { project } = defineProps({
 });
 </script>
 <template>
-    <h2 class="mono">{{ project.name }}</h2>
+    <div class="heading">
+        <h1 class="mono">{{ project.name }}</h1>
+        <h2 class="mono" v-if="project.group">{{ project.group }}</h2>
+    </div>
     <div class="project">
         <div class="thumb"><ImageViewer :cover="project.thumbnail" :images="project.images" /></div>
         <div class="details">
@@ -33,8 +36,11 @@ const { project } = defineProps({
     </div>
 </template>
 <style>
-h2 {
-    padding-bottom: 1em;
+div.heading {
+    padding-bottom: 2rem;
+}
+div.heading :not(:last-child) {
+    margin-bottom: 1rem;
 }
 h3 {
     color: var(--color-text-faded);
