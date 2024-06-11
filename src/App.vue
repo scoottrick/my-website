@@ -55,7 +55,7 @@ onMounted(() => {
     <header>
         <IntroSection />
     </header>
-    <PortfolioSection :portfolio="portfolioData" />
+    <main id="portfolio">
+        <PortfolioSection :portfolio="portfolioData" />
+    </main>
 </template>
-
-<style></style>

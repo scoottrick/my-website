@@ -86,7 +86,6 @@ h2 {
 }
 
 h1 {
-    font-size: 2em;
     margin-bottom: 0.5rem;
 }
 
@@ -121,11 +120,6 @@ h2 {
     flex-direction: row;
     justify-content: space-between;
     gap: 1rem;
-}
-
-.header p {
-    font-size: 1em;
-    line-height: 1.4;
 }
 
 .header img {

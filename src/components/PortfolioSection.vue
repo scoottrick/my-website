@@ -8,7 +8,7 @@ const portfolio = props.portfolio;
 </script>
 
 <template>
-    <main id="portfolio">
+    <div class="portfolio">
         <section v-for="section in portfolio" :key="section.id">
             <h1>{{ section.title }}</h1>
             <ul class="project-list">
@@ -17,11 +17,11 @@ const portfolio = props.portfolio;
                 </li>
             </ul>
         </section>
-    </main>
+    </div>
 </template>
 
 <style scoped>
-main#portfolio {
+.portfolio {
     margin: 0 auto;
     padding-bottom: 20vh;
 }
