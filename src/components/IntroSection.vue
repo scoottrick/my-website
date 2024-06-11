@@ -71,7 +71,7 @@ function hackText(target) {
                     <button>Portfolio</button>
                 </a>
                 <a href="/Scott-Schapker-Resume.pdf" target="_blank">
-                    <button>Resume</button>
+                    <button>Résumé</button>
                 </a>
             </span>
         </nav>
@@ -93,7 +93,7 @@ h2 {
     grid-template-columns: 1fr var(-image-size);
     grid-template-rows: auto;
     grid-template-areas: 'text image' 'nav .';
-    row-gap: 2rem;
+    row-gap: 4rem;
     column-gap: 4rem;
     padding-top: 10vh;
     padding-bottom: 20vh;

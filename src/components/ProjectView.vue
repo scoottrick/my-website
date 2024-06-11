@@ -17,9 +17,15 @@ const { project } = defineProps({
             </p>
             <div class="roles">
                 <h3>My Roles</h3>
-                <p>
+                <ul>
+                    <li>I did this with that</li>
+                    <li>Doing this was part of it</li>
+                    <li>This was something else that I did</li>
+                    <li>We used blank to create that</li>
+                </ul>
+                <!-- <p>
                     {{ project.role }}
-                </p>
+                </p> -->
             </div>
             <div class="techs">
                 <h3>Built With</h3>
@@ -51,11 +57,19 @@ h3 {
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
     grid-template-areas: 'thumb' 'details';
-    gap: 2em;
+    gap: 2rem;
 }
 
 .thumb {
     grid-area: thumb;
+}
+
+.roles ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style-type: disc;
+    list-style-position: inside;
 }
 
 .thumb img {
@@ -72,7 +86,7 @@ h3 {
 .details {
     grid-area: details;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: start;
     gap: 2rem;
 }
@@ -82,7 +96,6 @@ h3 {
 }
 
 .techs ul {
-    margin: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -101,9 +114,6 @@ h3 {
     .project {
         grid-template-columns: auto 1fr;
         grid-template-areas: 'thumb details';
-    }
-    .details {
-        flex-direction: column;
     }
     .techs ul {
         gap: 2rem;
