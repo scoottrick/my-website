@@ -5,7 +5,7 @@ import projects from '../data/portfolio-data';
 
 <template>
     <ul class="project-list">
-        <li v-for="project in projects" :key="project.id" class="project-container">
+        <li v-for="project in projects" :key="project.id">
             <ProjectView :project="project" />
         </li>
     </ul>
