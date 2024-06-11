@@ -45,118 +45,74 @@ function hackText(target) {
 </script>
 
 <template>
-    <header>
-        <div class="header-grid" @mouseenter="triggerHackEffect">
-            <div class="image-container">
-                <img src="/headshot.jpg" alt="Me" />
-            </div>
-            <nav class="nav-container">
-                <a href="#portfolio"><button>Projects</button></a>
-                <a href="/Scott-Schapker-Resume.pdf" target="_blank"><button>Resume</button></a>
-            </nav>
-            <div class="description-container">
-                <span>
-                    <h1>Scott Schapker</h1>
-                    <h2 ref="hackable">Software Engineer</h2>
-                </span>
-                <p>
-                    I'm primarily a web developer with a decade of experience creating applications
-                    with JavaScript. I'm most familiar working with Angular but have also spent time
-                    developing React, Android and iOS apps for professional and personal projects.
-                    Feel free to grab a copy of my résumé or look at some projects I've worked on
-                    below.
-                </p>
-            </div>
+    <div class="header" @mouseenter="triggerHackEffect">
+        <div class="description-container">
+            <span>
+                <h1>Scott Schapker</h1>
+                <h2 ref="hackable">Software Engineer</h2>
+            </span>
+            <p>
+                I'm primarily a web developer with a decade of experience creating applications with
+                JavaScript. I'm most familiar working with Angular but have also spent time
+                developing React, Android and iOS apps for professional and personal projects. Feel
+                free to grab a copy of my résumé or look at some projects I've worked on below.
+            </p>
         </div>
-    </header>
+        <img src="/headshot.jpg" alt="Me" />
+    </div>
 </template>
 
 <style scoped>
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding-bottom: 20vh;
-}
-
-header h1,
+h1,
 h2 {
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
 }
 
-header h1 {
+h1 {
     font-size: 2em;
     margin-bottom: 0.5rem;
 }
 
-header h2 {
+h2 {
     font-size: 1.4em;
     margin-bottom: 2rem;
 }
 
-header p {
+.header p {
     font-size: 1em;
     line-height: 1.4;
 }
 
-.header-grid {
-    display: grid;
-    max-width: 1080px;
-    grid-template-columns: 1fr;
-    grid-auto-rows: min-content;
-    grid-template-areas: 'image' 'nav' 'desc';
-    row-gap: 2rem;
+.header {
+    display: flex;
+    column-gap: 4rem;
+    padding-top: 10vh;
+    padding-bottom: 20vh;
 }
 
-.image-container {
-    grid-area: image;
-    text-align: center;
-}
-
-.image-container img {
+.header img {
     --size: 350px;
     width: var(--size);
     height: var(--size);
     border-radius: 4px;
 }
 
-nav {
-    grid-area: nav;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /*
-    flex-direction: row;
-    justify-content: space-between; */
-    gap: 24px;
-
-    font-size: 0.9em;
-}
-
-nav a {
-    flex-grow: 1;
-}
-
-nav a button {
-    width: 100%;
-    padding: 0.8em 0;
-}
-
 .description-container {
-    grid-area: desc;
-    padding: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
 }
 
-@media screen and (min-width: 720px) {
-    .header-grid {
-        grid-template-columns: auto 1fr;
-        grid-template-rows: min-content min-content;
-        grid-template-areas: 'image desc' 'nav .';
+@media screen and (max-width: 1080px) {
+    .header img {
+        --size: 200px;
     }
+}
 
-    .description-container {
-        padding: 1rem 2rem;
+@media screen and (max-width: 720px) {
+    .header img {
+        display: none;
     }
 }
 </style>

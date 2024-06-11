@@ -52,6 +52,10 @@ onMounted(() => {
 </script>
 
 <template>
-    <IntroSection />
+    <header>
+        <IntroSection />
+    </header>
     <PortfolioSection :portfolio="portfolioData" />
 </template>
+
+<style></style>
