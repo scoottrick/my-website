@@ -1,9 +1,11 @@
 :root {
     --lt-background: rgb(230, 230, 230);
     --lt-text: rgb(10, 10, 10);
+    --lt-text-faded: rgba(50, 50, 50, 0.7);
 
     --dt-background: rgb(41, 41, 41);
     --dt-text: rgb(200, 200, 200);
+    --dt-text-faded: rgba(150, 150, 150, 0.7);
 
     --interactive-color: rgb(3, 148, 184);
 }
@@ -11,6 +13,7 @@
 :root {
     --color-background: var(--lt-background);
     --color-text: var(--lt-text);
+    --color-text-faded: var(--lt-text-faded);
     --color-interact: var(--interactive-color);
 }
 
@@ -18,6 +21,7 @@
     :root {
         --color-background: var(--dt-background);
         --color-text: var(--dt-text);
+        --color-text-faded: var(--dt-text-faded);
     }
 }
 

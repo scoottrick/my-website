@@ -55,7 +55,7 @@ ul {
 
 @media screen and (min-width: 1680px) {
     .project-list {
-        --direction: row;
+        /* --direction: row; */
     }
     .project-container {
         flex-grow: 1;

@@ -52,8 +52,8 @@ function hackText(target) {
     <div class="header" @mouseenter="triggerHackEffect">
         <div class="text">
             <span>
-                <h1>Scott Schapker</h1>
-                <h2 ref="hackable">Software Engineer</h2>
+                <h1 class="mono">Scott Schapker</h1>
+                <h2 ref="hackable" class="mono">Software Engineer</h2>
             </span>
             <p>
                 I'm primarily a web developer with a decade of experience creating applications with
@@ -79,12 +79,6 @@ function hackText(target) {
 </template>
 
 <style scoped>
-h1,
-h2 {
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 700;
-}
-
 h1 {
     margin-bottom: 0.5rem;
 }

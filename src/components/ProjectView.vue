@@ -5,43 +5,40 @@ const { project } = defineProps({
 });
 </script>
 <template>
-    <h2>{{ project.name }}</h2>
+    <h2 class="mono">{{ project.name }}</h2>
     <div class="project">
         <div class="thumb"><ImageViewer :cover="project.thumbnail" :images="project.images" /></div>
         <div class="details">
-            <div>
-                <div class="description">
-                    <h3>The Project</h3>
-                    <p>
-                        {{ project.description }}
-                    </p>
-                </div>
-                <div class="roles">
-                    <h3>My Roles</h3>
-                    <p>
-                        {{ project.role }}
-                    </p>
-                </div>
+            <p>
+                {{ project.description }}
+            </p>
+            <div class="roles">
+                <h3>My Roles</h3>
+                <p>
+                    {{ project.role }}
+                </p>
             </div>
-            <ul class="techs">
-                <li v-for="(tech, i) in project.techs" :key="i">
-                    <a v-if="tech.url" :href="tech.url" target="_blank"
-                        ><img :src="tech.logo" :alt="tech.text" :title="tech.text"
-                    /></a>
-                    <img v-else :src="tech.logo" :alt="tech.text" :title="tech.text" />
-                </li>
-            </ul>
+            <div class="techs">
+                <h3>Built With</h3>
+                <ul>
+                    <li v-for="(tech, i) in project.techs" :key="i">
+                        <a v-if="tech.url" :href="tech.url" target="_blank"
+                            ><img :src="tech.logo" :alt="tech.text" :title="tech.text"
+                        /></a>
+                        <img v-else :src="tech.logo" :alt="tech.text" :title="tech.text" />
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
 <style>
-h2,
-h3,
-p {
-    line-height: 1.2;
-}
 h2 {
     padding-bottom: 1em;
+}
+h3 {
+    color: var(--color-text-faded);
+    padding-bottom: 0.5rem;
 }
 .project {
     display: grid;
@@ -70,19 +67,21 @@ h2 {
     grid-area: details;
     display: flex;
     flex-direction: column-reverse;
-    justify-content: space-between;
-    min-width: 400px;
-    max-width: 1200px;
+    justify-content: start;
+    gap: 2rem;
 }
 
-.techs {
+.roles {
+    flex-grow: 1;
+}
+
+.techs ul {
     margin: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: start;
     gap: 1em;
-    padding: 1em 0;
     list-style: none;
 }
 
@@ -100,10 +99,8 @@ h2 {
     .details {
         flex-direction: column;
     }
-    .techs {
-        padding: 1em 0 0;
-        gap: 2em;
-        justify-content: start;
+    .techs ul {
+        gap: 2rem;
     }
 }
 </style>
