@@ -70,8 +70,7 @@ class TechList {
 }
 
 // CLEANSLATE
-const cs = 'CleanSlate Technology Group';
-const edesign = createProjectData('Herff Jones eDesign', cs, 'edesign', {
+const edesign = createProjectData('Herff Jones eDesign', 'CleanSlate Technology Group', 'edesign', {
     project:
         'eDesign is a service used by schools to create yearbooks. Students and staff can use eDesign for everything in the creation process including uploading image libraries, assigning tasks, designing pages and ordering yearbooks.',
     roles: [
@@ -147,7 +146,12 @@ const mobileTechApp = createProjectData('Mobile Tech', 'Viavi Solutions, Inc', '
 const falloutApp = createProjectData('Fallout 4 Buddy', null, 'fallout', {
     project:
         'Fallout 4 is a massive game with plenty of things to do and find. I built this web app to simplify my campaigns by allowing me to keep track of which collectible items I have found and the ones still scattered across the Wasteland. I also included a tool to help hack the locked terminals throughout the game.',
-    roles: [],
+    roles: [
+        'Progressive Web App with Angular',
+        'Created checklists of collectible items with their in-game locations and effects',
+        'Used browser local storage to save the user’s collection details',
+        'Implemented a tool to solve terminal hacking puzzles'
+    ],
     techs: [TechList.angular, TechList.typescript, TechList.html, TechList.css]
 });
 const golfApp = createProjectData('Round of Golf', null, 'golf', {
