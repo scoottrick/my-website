@@ -19,7 +19,7 @@ const { project } = defineProps({
                 >
             </p>
             <div class="roles">
-                <h3>My Roles</h3>
+                <h3 class="mono">My Work</h3>
                 <ul v-if="project.roles.length">
                     <li v-for="(role, i) in project.roles" :key="i">
                         {{ role }}
@@ -27,7 +27,7 @@ const { project } = defineProps({
                 </ul>
             </div>
             <div class="techs">
-                <h3>Built With</h3>
+                <h3 class="mono">My Tools</h3>
                 <ul>
                     <li v-for="(tech, i) in project.techs" :key="i">
                         <a v-if="tech.url" :href="tech.url" target="_blank"
@@ -71,7 +71,6 @@ h3 {
     flex-direction: column;
     gap: 0.5rem;
     list-style-type: disc;
-    list-style-position: inside;
 }
 
 .thumb img {
@@ -116,6 +115,9 @@ h3 {
     .project {
         grid-template-columns: auto 1fr;
         grid-template-areas: 'thumb details';
+    }
+    .roles ul {
+        list-style-position: inside;
     }
     .techs ul {
         gap: 2rem;
