@@ -110,10 +110,10 @@ const perryvilleApp = createProjectData('Perryville Battlefield', digitalCorps, 
     project:
         'The Perryville Battlefield app enhances the experience of visitors to Perryville Battlefield State Historic Site. The app provides a map of the park as well as additional details and historical context for the various stops along a guided tour of the battlefield.',
     roles: [
-        'My first Android project, though I worked on both Android and iOS apps',
         'Implemented a map view with an image overlay showing the park and its trails',
         'Created pages for a guided tour where users could read or listen to narrated details about each site',
-        'Marked important locations within the park using the Google Maps API'
+        'Marked important locations within the park using the Google Maps API',
+        'My first Android project, though I worked on both Android and iOS apps'
     ],
     techs: [TechList.android, TechList.java, TechList.ios, TechList.objectivec, TechList.googleMaps]
 });
@@ -121,10 +121,10 @@ const parksApp = createProjectData('Indiana State Parks', digitalCorps, 'in-park
     project:
         "This app provides an overview and information about a handful of Indiana's state parks. Users can use the app to find park details including a map, background information, photos and notable sites within the park.",
     roles: [
-        'My first iOS app',
         'Used Google Maps to implement park maps with pins to denote popular areas within them',
         'Created a gallery view to show park photos',
-        'Implemented simple controls for users to listen to local audio files'
+        'Implemented simple controls for users to listen to local audio files',
+        'My first iOS app'
     ],
     techs: [TechList.ios, TechList.objectivec, TechList.xcode, TechList.googleMaps]
 });
@@ -144,20 +144,28 @@ const mobileTechApp = createProjectData('Mobile Tech', 'Viavi Solutions, Inc', '
 
 // PERSONAL
 const falloutApp = createProjectData('Fallout 4 Buddy', null, 'fallout', {
+    link: 'https://fallout-4-buddy.web.app/',
     project:
         'Fallout 4 is a massive game with plenty of things to do and find. I built this web app to simplify my campaigns by allowing me to keep track of which collectible items I have found and the ones still scattered across the Wasteland. I also included a tool to help hack the locked terminals throughout the game.',
     roles: [
-        'Progressive Web App with Angular',
         'Created checklists of collectible items with their in-game locations and effects',
-        'Used browser local storage to save the user’s collection details',
-        'Implemented a tool to solve terminal hacking puzzles'
+        'Used browser local storage to save collection details',
+        'Implemented a tool to solve terminal hacking puzzles',
+        'My first Angular progressive web app',
+        'Designed with Angular Material'
     ],
     techs: [TechList.angular, TechList.typescript, TechList.html, TechList.css]
 });
 const golfApp = createProjectData('Round of Golf', null, 'golf', {
+    link: 'https://round-of-golf.web.app/',
     project:
         "This web app was built to be the simplest way to keep track of scores for a round of golf. It's as simple as I could make it. All that's needed to create a scorecard are the names of 1-4 golfers and a choice of either 9 or 18 holes. Scorecards are then saved as they are updated and can be revisited via a history feature.",
-    roles: [],
+    roles: [
+        'Implemented a simple scorecard with a grid of input elements',
+        'Created a round history feature using score data from local storage',
+        'My first React project and progressive web app',
+        'Designed from scratch with Tailwind'
+    ],
     techs: [TechList.react, TechList.javascript, TechList.tailwind, TechList.html]
 });
 
@@ -185,9 +193,10 @@ function createProjectData(name, group, path, details) {
     if (!details) {
         throw new Error('cannont create portfolio data');
     }
-    const { project, techs, roles } = details;
+    const { project, techs, roles, link } = details;
     return {
         id: ++projectId,
+        link,
         name,
         group,
         thumbnail: `/${baseDir}/${path}/thumb.jpg`,

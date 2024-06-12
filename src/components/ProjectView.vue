@@ -14,6 +14,9 @@ const { project } = defineProps({
         <div class="details">
             <p>
                 {{ project.description }}
+                <span v-if="project.link">
+                    You can check it out <a :href="project.link" target="_blank">here</a>.</span
+                >
             </p>
             <div class="roles">
                 <h3>My Roles</h3>
