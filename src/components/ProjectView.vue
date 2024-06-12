@@ -17,15 +17,11 @@ const { project } = defineProps({
             </p>
             <div class="roles">
                 <h3>My Roles</h3>
-                <ul>
-                    <li>I did this with that</li>
-                    <li>Doing this was part of it</li>
-                    <li>This was something else that I did</li>
-                    <li>We used blank to create that</li>
+                <ul v-if="project.roles.length">
+                    <li v-for="(role, i) in project.roles" :key="i">
+                        {{ role }}
+                    </li>
                 </ul>
-                <!-- <p>
-                    {{ project.role }}
-                </p> -->
             </div>
             <div class="techs">
                 <h3>Built With</h3>
