@@ -143,7 +143,8 @@ const mobileTechApp = createProjectData('Mobile Tech', 'Viavi Solutions, Inc', '
 });
 
 // PERSONAL
-const falloutApp = createProjectData('Fallout 4 Buddy', null, 'fallout', {
+const personalGroup = 'Personal Project';
+const falloutApp = createProjectData('Fallout 4 Buddy', personalGroup, 'fallout', {
     link: 'https://fallout-4-buddy.web.app/',
     project:
         'Fallout 4 is a massive game with plenty of things to do and find. I built this web app to simplify my campaigns by allowing me to keep track of which collectible items I have found and the ones still scattered across the Wasteland. I also included a tool to help hack the locked terminals throughout the game.',
@@ -156,7 +157,7 @@ const falloutApp = createProjectData('Fallout 4 Buddy', null, 'fallout', {
     ],
     techs: [TechList.angular, TechList.typescript, TechList.html, TechList.css]
 });
-const golfApp = createProjectData('Round of Golf', null, 'golf', {
+const golfApp = createProjectData('Round of Golf', personalGroup, 'golf', {
     link: 'https://round-of-golf.web.app/',
     project:
         "This web app was built to be the simplest way to keep track of scores for a round of golf. It's as simple as I could make it. All that's needed to create a scorecard are the names of 1-4 golfers and a choice of either 9 or 18 holes. Scorecards are then saved as they are updated and can be revisited via a history feature.",

@@ -47,6 +47,9 @@ div.heading {
 div.heading :not(:last-child) {
     margin-bottom: 1rem;
 }
+h2 {
+    font-size: 1.4em;
+}
 h3 {
     color: var(--color-text-faded);
     padding-bottom: 0.5rem;
