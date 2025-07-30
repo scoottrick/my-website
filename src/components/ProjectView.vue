@@ -6,7 +6,7 @@ const { project } = defineProps({
 </script>
 <template>
     <div class="heading">
-        <h1 class="mono">{{ project.name }}</h1>
+        <h1>{{ project.name }}</h1>
         <h2 class="mono" v-if="project.group">{{ project.group }}</h2>
     </div>
     <div class="project">
@@ -22,7 +22,8 @@ const { project } = defineProps({
                 <h3 class="mono">My Work</h3>
                 <ul v-if="project.roles.length">
                     <li v-for="(role, i) in project.roles" :key="i">
-                        {{ role }}
+                        <span class="dash">-</span>
+                        <span>{{ role }}</span>
                     </li>
                 </ul>
             </div>
@@ -70,7 +71,17 @@ h3 {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    list-style-type: disc;
+    list-style-type: none;
+}
+
+.roles li {
+    display: flex;
+    flex-direction: row;
+}
+
+li .dash {
+    padding-right: 1rem;
+    font-weight: 800;
 }
 
 .thumb img {
@@ -101,12 +112,12 @@ h3 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: start;
-    gap: 1em;
+    gap: 0.5em;
     list-style: none;
 }
 
 .techs img {
-    --size: 40px;
+    --size: 35px;
     width: var(--size);
     height: var(--size);
 }
@@ -119,8 +130,14 @@ h3 {
     .roles ul {
         list-style-position: inside;
     }
+}
+
+@media screen and (min-width: 1020px) {
     .techs ul {
         gap: 2rem;
+    }
+    .techs img {
+        --size: 40px;
     }
 }
 </style>

@@ -87,6 +87,9 @@ h2 {
     font-size: 1.4em;
     margin-bottom: 2rem;
 }
+.header button {
+    font-size: 1em;
+}
 .header {
     --image-size: 350px;
     display: grid;
