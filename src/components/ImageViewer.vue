@@ -5,6 +5,8 @@ const { cover } = defineProps({
     images: { type: Array, required: false }
 });
 
+const enabled = false;
+
 const isOpened = ref(false);
 const current = ref(0);
 const tracker = ref(null);
@@ -70,8 +72,12 @@ function moveClosePrompt(event) {
 </script>
 <template>
     <div :class="containerClass">
-        <div class="cover">
+        <div class="cover" v-if="!enabled">
+            <img :src="cover" alt="project thumbail" class="disabled" />
+        </div>
+        <div class="cover" v-if="enabled">
             <img
+                v-if="enabled"
                 ref="coverImage"
                 @click="openGallery"
                 @mousemove="trackMouse"
@@ -220,7 +226,7 @@ function moveClosePrompt(event) {
 .image-viewer.closed .cover img:hover ~ .still {
     opacity: 0;
 }
-.cover img:hover {
+.cover img:hover:not(.disabled) {
     box-shadow: 2px 4px 8px -2px black;
     transform: scale(1.05);
 }
