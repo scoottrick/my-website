@@ -130,7 +130,7 @@ const parksApp = createProjectData('Indiana State Parks', digitalCorps, 'in-park
 });
 
 // VIAVI
-const mobileTechApp = createProjectData('Mobile Tech', 'Viavi Solutions, Inc', 'mobile-tech', {
+const mobileTechApp = createProjectData('Mobile Tech', 'Viavi Solutions', 'mobile-tech', {
     project:
         "Mobile Tech facilitates communications between Viavi's OneExpert testing devices and the cloud. The app deploys configurations and settings from the cloud to testing devices and submits completed tests back to the cloud.",
     roles: [

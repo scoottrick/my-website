@@ -15,6 +15,12 @@ import projects from '../data/portfolio-data';
 .project-list {
     display: flex;
     flex-direction: column;
-    gap: 8rem;
+    gap: 4rem;
+}
+
+@media screen and (min-width: 720px) {
+    .project-list {
+        gap: 6rem;
+    }
 }
 </style>

@@ -3,7 +3,7 @@
 
 #app {
     margin: auto;
-    padding: 2rem 2rem 10vh;
+    padding: 1rem 1rem 10vh;
     max-width: 1440px;
 }
 
@@ -67,6 +67,10 @@ p {
 }
 
 @media screen and (min-width: 720px) {
+    #app {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
     h1 {
         font-size: 2em;
     }
