@@ -16,7 +16,7 @@ a {
     color: var(--color-interact);
 }
 
-button {
+button:not(.clear) {
     background-color: var(--color-interact);
     color: var(--color-text);
     font-size: 1.2em;
@@ -29,12 +29,19 @@ button {
     transition: box-shadow 200ms ease-in-out;
 }
 
-button:hover {
+button:not(.clear):hover {
     box-shadow: 4px 8px 8px -4px #111;
 }
 
-button:active {
+button:not(.clear):active {
     box-shadow: 2px 4px 4px -4px #111;
+}
+
+button.clear {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 50%;
 }
 
 h1 {

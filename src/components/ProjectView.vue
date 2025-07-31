@@ -3,6 +3,25 @@ import ImageViewer from './ImageViewer.vue';
 const { project } = defineProps({
     project: { type: Object, required: true }
 });
+
+const tooltipTimers = [];
+const enableTooltips = true;
+
+function showTooltip(index) {
+    const id = project.name + '-tooltip' + index;
+    const el = document.getElementById(id);
+    if (!el) {
+        return;
+    }
+    const currentTimer = tooltipTimers[index];
+    currentTimer && clearTimeout(currentTimer);
+    const newTimer = setTimeout(() => {
+        el.setAttribute('data-hidden', true);
+    }, 800);
+    tooltipTimers[index] = newTimer;
+
+    el.setAttribute('data-hidden', false);
+}
 </script>
 <template>
     <div class="heading">
@@ -31,10 +50,17 @@ const { project } = defineProps({
                 <h3 class="mono">My Tools</h3>
                 <ul>
                     <li v-for="(tech, i) in project.techs" :key="i">
-                        <a v-if="tech.url" :href="tech.url" target="_blank"
-                            ><img :src="tech.logo" :alt="tech.text" :title="tech.text"
-                        /></a>
-                        <img v-else :src="tech.logo" :alt="tech.text" :title="tech.text" />
+                        <button class="clear" @click="showTooltip(i)">
+                            <img :src="tech.logo" :alt="tech.text" :title="tech.text" />
+                        </button>
+                        <div
+                            v-if="enableTooltips"
+                            data-hidden="true"
+                            :id="project.name + '-tooltip' + i"
+                            class="tooltip"
+                        >
+                            {{ tech.text }}
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -114,6 +140,31 @@ li .dash {
     justify-content: start;
     gap: 0.5em;
     list-style: none;
+}
+
+.techs li {
+    position: relative;
+}
+
+.techs .tooltip {
+    position: absolute;
+    top: -80%;
+    right: 60%;
+    text-align: center;
+    padding: 0.25em 0.5em;
+    width: max-content;
+    background-color: rgba(5, 5, 5, 0.85);
+    border-radius: 4px;
+    z-index: 100;
+}
+
+.tooltip[data-hidden='true'] {
+    display: none;
+    position: absolute;
+}
+
+.tooltip[data-hidden='false'] {
+    display: inline-block;
 }
 
 .techs img {
