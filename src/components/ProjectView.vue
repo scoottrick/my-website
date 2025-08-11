@@ -5,7 +5,7 @@ const { project } = defineProps({
 });
 
 const tooltipTimers = [];
-const enableTooltips = true;
+const enableTooltips = false;
 
 function showTooltip(index) {
     const id = project.name + '-tooltip' + index;
